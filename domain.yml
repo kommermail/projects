@@ -1,0 +1,62 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - find_time_zone
+  - find_time_zone_for_location
+  - city_info
+  - thanks
+
+actions:
+  - show_time_zone
+  
+
+entities:
+  - city
+
+slots:
+  city:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: city
+
+
+responses:
+  utter_greet:
+  - text: "Hey! I am Time Zone Bot"
+
+  utter_ask_location:
+  - text: "Sure, where do you want to know the time zone for?"
+
+  utter_finding_time_zone:
+  - text: "OK, give me a second to look up the time zone of {city}"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://accurate-butterfly.static.domains/grogu-baby-yoda.png"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_ur_welcome:
+  - text: "You are welcome!"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Goodbye, thank you for using Time Zone Bot"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
